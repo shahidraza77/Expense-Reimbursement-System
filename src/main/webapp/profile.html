@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Empprofile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<!--Coded with love by Mutiullah Samim-->
+<!-- 3.108.227.249 -->
+<!-- e2532d72e3e8431e97eb8c7bada2643f -->
+<body>
+  
+      <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+  <!--<a class="navbar-brand" href="#">Home</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <!--  <a class="nav-link active" href="#">Request</a>-->
+        <button type="button" onclick="fun()" class="btn btn-primary" >Home</button>
+        <script>function fun(){
+        	 window.location.href = "index.html";
+        	
+        }</script>
+      </li>
+      <li class="nav-item active">
+      <form action="profile">
+         <button type="submit" class="btn btn-primary" data-toggle="modal">Profile
+      </button>
+      </form>
+      </li>
+      <li class="nav-item">
+        <!--  <a class="nav-link active" href="#">Request</a>-->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestModal">Request
+</button>
+      </li>
+      <li class="nav-item">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#statusModal">Status
+</button>
+      </li>
+      <li class="nav-item active">
+      <form action="profile">
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal">Update
+      </button>
+      </form>
+      </li>
+      <li class="nav-item">
+        <form action="logout">
+        <button type="submit" class="btn btn-primary">Logout</button>
+        </form>
+      </li>
+      
+    </ul>
+  
+  </div>
+</nav>
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal status-->
+<div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="requestModalLabel">Check status</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form method="post" action="status">   
+  <div class="form-group">
+    <label for="exampleFormControlSelect5">Employee ID</label>
+   <input type="number" name="emid" min="1" step="1" required id="id">
+  </div>
+  <div class="form-group">
+    <!-- <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" id="text" rows="3"></textarea> -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </div>
+</form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- Update -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateModalLabel">Update</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form method="post" action="update">
+       
+       <!-- <div class="form-group">
+    <label for="exampleFormControlInput1">Enter Employee ID</label>
+    <input type="number" min="1" step="1" id="eid">
+  </div> -->
+  
+  <div class="form-group">
+    <label for="exampleFormControlInput2">Email address</label>
+    <input type="email" name="email" class="form-control input_user" id="email" placeholder="name@example.com" >
+  </div>
+  <!-- <div class="form-group">
+    <label for="exampleFormControlSelect4">Phone Number</label>
+   <input type="number" id="phone" name="phone" placeholder="xxxxxxxxxx" pattern="[6-9]{1}[0-9]{9}" maxlength="10" >
+  </div> -->
+  <div class="form-group">
+    <label for="exampleFormControlInput2">Address</label>
+    <input type="text" name="address" class="form-control input_user" id="address" placeholder="address" >
+  </div>
+  
+  <div class="form-group">
+    <!-- <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" id="text" rows="3"></textarea> -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </div>
+</form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- Modal reques-->
+<div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="requestModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="requestModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form method="post" action="webapi/employee/request">
+       
+       <!-- <div class="form-group">
+    <label for="exampleFormControlInput1">Enter Employee ID</label>
+    <input type="number" min="1" step="1" id="eid">
+  </div> -->
+  <div class="form-group">
+    <label for="exampleFormControlInput2">Enter Employee ID</label>
+    <input type="number" name="id" class="form-control input_user" id="empid" placeholder="employee_id" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput2">Email address</label>
+    <input type="email" name="email" class="form-control input_user" id="email" placeholder="name@example.com" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect3">Enter Name</label>
+   <input type="text" name="name" class="form-control" id="ename" placeholder="name" maxlength="20" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect3">Enter Reimbursement Type</label>
+   <input type="text" name="rtype" class="form-control" id="rtype" placeholder="Travel or Medical" maxlength="20" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect4">Phone Number</label>
+   <input type="number" id="phone" name="phone" placeholder="xxxxxxxxxx" pattern="[6-9]{1}[0-9]{9}" maxlength="10" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect5">Enter Amount</label>
+   <input type="number" name="amount" min="1" step="1" required id="amount">
+  </div>
+  <div class="form-group">
+    <!-- <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" id="text" rows="3"></textarea> -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </div>
+</form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+  <script>
+          
+          function demo(){
+             var empid = document.getElementById("empid").value;
+            var email = document.getElementById("email").value;
+            var name = document.getElementById("ename").value;
+            var phone = document.getElementById("phone").value;
+            var retype = document.getElementById("retype").value;
+            var amount = document.getElementById("amount").value;
+            var obj1 = {empid:empid,email:email,name:name,retype:retype,phone:phone,amount:amount,status:"Pending"};
+            fetch("http://localhost:8080/Project1/profile.html/webapi/employee/request",
+            		{
+            	method:"POST",
+                body: JSON.stringify(obj1),
+                headers:{
+                    "Content-Type": "application/json",
+                }
+                
+            })
+            .then((response)=>response.json())
+            .then((json)=>disp(json))
+            .catch(err=>console.log('Request failed'));
+            function disp(res){
+                if(res.status === "true"){
+                	alert("Request Received");
+                      window.location.href = "profile.html";
+                	//alert("saved sucessfully");
+                }
+                else{
+                    alert("opps!!");
+                }
+            }
+        }
+      </script> 
+      <!-- 
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://source.unsplash.com/1600x900/?nature,technology" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://source.unsplash.com/weekly?water" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://source.unsplash.com/1600x900/?nature,water" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>     -->
+</body>
+
+</html>
